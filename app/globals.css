@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-ivory: #F7F4EF;
+    --bg-beige: #EEE9E1;
+    --text-charcoal: #171513;
+    --text-warmgray: #625D56;
+    --border-soft: #D8D1C7;
+    --accent-bronze: #8B6F47;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-ivory);
+    color: var(--text-charcoal);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #8B6F47;
+    color: #F7F4EF;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F7F4EF;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D8D1C7;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B6F47;
+  }
+}
+
+/* Editorial Typography utilities */
+.editorial-title {
+  font-family: var(--font-cormorant), 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+
+.editorial-subheading {
+  font-family: var(--font-cormorant), 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.label-caps {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* Subtle image zoom transition */
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-zoom-container:hover img {
+  transform: scale(1.04);
+}
+
+/* Glassmorphism for floating UI */
+.editorial-glass {
+  background: rgba(247, 244, 239, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.editorial-glass-dark {
+  background: rgba(23, 21, 19, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
