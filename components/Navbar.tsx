@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -55,18 +55,19 @@ export default function Navbar() {
           </Link>
 
           {/* Right Action Controls: GET A QUOTE + MENU */}
-          <div className="flex items-center space-x-4 sm:space-x-8">
+          <div className="flex items-center space-x-3 sm:space-x-8">
             {/* Get a Quote Button */}
             <Link
               href="/contact"
-              className={`inline-flex items-center space-x-2 text-[11px] sm:text-xs uppercase tracking-[0.2em] px-4 sm:px-6 py-2 sm:py-2.5 rounded-none border transition-all duration-300 ${
+              className={`inline-flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.2em] font-medium px-3 sm:px-6 py-1.5 sm:py-2.5 transition-all duration-300 ${
                 isDarkHero
-                  ? "border-ivory/40 text-ivory hover:bg-ivory hover:text-charcoal hover:border-ivory"
-                  : "border-charcoal text-charcoal hover:bg-charcoal hover:text-ivory"
+                  ? "border border-ivory/40 text-ivory hover:bg-ivory hover:text-charcoal hover:border-ivory backdrop-blur-sm"
+                  : "border border-charcoal text-charcoal hover:bg-charcoal hover:text-ivory"
               }`}
             >
-              <MessageCircle className="w-3.5 h-3.5 text-bronze" />
-              <span>Get a Quote</span>
+              <MessageCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-bronze" />
+              <span className="hidden sm:inline">Get a Quote</span>
+              <span className="sm:hidden">Quote</span>
             </Link>
 
             {/* Menu Toggle Button (with Menu label and 2/3 horizontal lines) */}

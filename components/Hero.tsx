@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -6,24 +6,35 @@ import Link from "next/link";
 import { MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { SOCIAL_LINKS } from "@/data/navigation";
 
-const HERO_SLIDES = [
+interface HeroSlide {
+  webImage?: string;
+  mobileImage?: string;
+  video?: string;
+  title: string;
+  subtitle: string;
+}
+
+const HERO_SLIDES: HeroSlide[] = [
   {
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=2600&auto=format&fit=crop",
+    webImage: "/images/hero/hero-1-web.png",
+    mobileImage: "/images/hero/hero-1-mobile.webp",
     title: "Embracing the journey of love.",
     subtitle: "Candid, cinematic and timeless wedding photography crafted around your authentic story.",
   },
   {
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=85&w=2600&auto=format&fit=crop",
+    webImage: "/images/hero/hero-2-web.jpg",
+    mobileImage: "/images/hero/hero-2-mobile.webp",
     title: "Preserving sacred heirloom moments.",
     subtitle: "Documenting generations of traditions, tears, and unfiltered joy across India.",
   },
   {
-    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=85&w=2600&auto=format&fit=crop",
+    webImage: "/images/hero/hero-3-web.png",
+    mobileImage: "/images/hero/hero-3-mobile.png",
     title: "Where forever begins.",
     subtitle: "From palace courtyards in Rajasthan to cliffside vows in Goa and worldwide.",
   },
   {
-    image: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=85&w=2600&auto=format&fit=crop",
+    video: "/images/hero/hero-4-video.mov",
     title: "Unstaged emotions, pure art.",
     subtitle: "Bespoke photography and documentary cinema for discerning couples.",
   },
@@ -51,23 +62,53 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-[100svh] min-h-[640px] flex items-center justify-center overflow-hidden bg-charcoal">
-      {/* Background Images */}
+      {/* Background Images & Video */}
       {HERO_SLIDES.map((s, idx) => (
         <div
-          key={s.image}
+          key={s.video || s.webImage || idx}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
           }`}
           style={{ transition: "opacity 1.2s ease-in-out, transform 8s ease-out" }}
         >
-          <Image
-            src={s.image}
-            alt="Cinigama Luxury Wedding Photography"
-            fill
-            priority={idx === 0}
-            sizes="100vw"
-            className="object-cover object-center brightness-[0.78]"
-          />
+          {s.video ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.78]"
+            >
+              <source src={s.video} type="video/quicktime" />
+              <source src={s.video} type="video/mp4" />
+            </video>
+          ) : (
+            <>
+              {/* Desktop Image */}
+              <div className="hidden md:block absolute inset-0">
+                <Image
+                  src={s.webImage!}
+                  alt="Cinigama Luxury Wedding Photography"
+                  fill
+                  priority={idx === 0}
+                  sizes="100vw"
+                  className="object-cover object-center brightness-[0.78]"
+                />
+              </div>
+              {/* Mobile Image */}
+              <div className="block md:hidden absolute inset-0">
+                <Image
+                  src={s.mobileImage!}
+                  alt="Cinigama Luxury Wedding Photography"
+                  fill
+                  priority={idx === 0}
+                  sizes="100vw"
+                  className="object-cover object-center brightness-[0.78]"
+                />
+              </div>
+            </>
+          )}
         </div>
       ))}
 
