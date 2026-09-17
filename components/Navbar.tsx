@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
@@ -40,18 +41,16 @@ export default function Navbar() {
           {/* Brand Logo / Wordmark */}
           <Link
             href="/"
-            className="group flex flex-col items-start transition-opacity hover:opacity-85"
+            className="group flex items-center transition-opacity hover:opacity-85"
           >
-            <span className="font-serif text-2xl sm:text-3xl tracking-[0.22em] uppercase font-light leading-none">
-              Cinigama
-            </span>
-            <span
-              className={`text-[8px] sm:text-[9px] uppercase tracking-[0.35em] mt-1 transition-colors ${
-                isDarkHero ? "text-ivory/70" : "text-warmgray"
-              }`}
-            >
-              One of a Kind • Photography
-            </span>
+            <Image
+              src={isDarkHero ? "/images/logo/logo-white.webp" : "/images/logo/logo-black.webp"}
+              alt="Cinigama Luxury Wedding Photography & Cinema"
+              width={160}
+              height={47}
+              priority
+              className="h-7 sm:h-9 w-auto object-contain transition-all duration-300"
+            />
           </Link>
 
           {/* Right Action Controls: GET A QUOTE + MENU */}

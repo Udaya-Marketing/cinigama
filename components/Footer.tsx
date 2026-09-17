@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+import Image from "next/image";
+import Link from "next/link";
 import { Instagram, Youtube, Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { SOCIAL_LINKS, CITY_HUBS, OFFICE_LOCATIONS } from "@/data/navigation";
 
@@ -31,12 +32,13 @@ export default function Footer() {
           {/* Col 1 — Brand (4 cols) */}
           <div className="lg:col-span-4 flex flex-col space-y-6">
             <Link href="/" className="inline-block group">
-              <span className="font-serif text-3xl sm:text-4xl tracking-[0.22em] uppercase font-light text-ivory block leading-none group-hover:opacity-85 transition-opacity">
-                Cinigama
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.38em] text-ivory/50 mt-1.5 block">
-                Photography &amp; Cinema
-              </span>
+              <Image
+                src="/images/logo/logo-white.webp"
+                alt="Cinigama Luxury Wedding Photography & Cinema"
+                width={180}
+                height={52}
+                className="h-9 sm:h-11 w-auto object-contain transition-opacity group-hover:opacity-85"
+              />
             </Link>
 
             <p className="text-ivory/65 text-sm font-light leading-relaxed max-w-xs">

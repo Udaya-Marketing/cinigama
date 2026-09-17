@@ -38,6 +38,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Cinigama Studios" }],
   creator: "Cinigama Studios",
   metadataBase: new URL("https://cinigama.com"),
+  icons: {
+    icon: "/images/logo/icon-black.webp",
+    apple: "/images/logo/icon-black.webp",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",

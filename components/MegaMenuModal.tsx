@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { X, MessageCircle } from "lucide-react";
 import { MEGA_MENU_DATA, SOCIAL_LINKS } from "@/data/navigation";
@@ -43,14 +44,15 @@ export default function MegaMenuModal({ isOpen, onClose }: MegaMenuModalProps) {
         <Link
           href="/"
           onClick={onClose}
-          className="group flex flex-col items-start transition-opacity hover:opacity-85"
+          className="group flex items-center transition-opacity hover:opacity-85"
         >
-          <span className="font-serif text-2xl sm:text-3xl tracking-[0.22em] uppercase font-light text-ivory leading-none">
-            Cinigama
-          </span>
-          <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.35em] text-ivory/60 mt-1">
-            One of a Kind • Photography & Cinema
-          </span>
+          <Image
+            src="/images/logo/logo-white.webp"
+            alt="Cinigama Luxury Wedding Photography & Cinema"
+            width={160}
+            height={47}
+            className="h-7 sm:h-9 w-auto object-contain transition-all duration-300"
+          />
         </Link>
 
         {/* Right Actions: Get a Quote & Close */}
