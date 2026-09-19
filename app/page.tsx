@@ -30,7 +30,7 @@ export default function HomePage() {
       <EditorialGallery />
 
       {/* 05: The 4 Editorial Pillars */}
-      <WhyChooseUs />
+      {/* <WhyChooseUs /> */}
 
       {/* 06: Asymmetric Featured Stories Gallery */}
       <FeaturedStories />
@@ -39,13 +39,13 @@ export default function HomePage() {
       <ServicesSection />
 
       {/* 08: Dedicated Client Portal & App Tracking (Screenshot 2 matching progress dashboard) */}
-      <AppShowcaseSection />
+      {/* <AppShowcaseSection /> */}
 
       {/* 09: Full-Width Destination Parallax CTA */}
-      <DestinationCTA />
+      {/* <DestinationCTA /> */}
 
       {/* 10: Client Experience Journey */}
-      <ExperienceTimeline />
+      {/* <ExperienceTimeline /> */}
 
       {/* 11: 4.9★ Google Reviews Section matching OOAK design */}
       <GoogleReviews />

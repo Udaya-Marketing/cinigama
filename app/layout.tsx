@@ -71,6 +71,8 @@ export const metadata: Metadata = {
   },
 };
 
+import MetaPixel from "@/components/MetaPixel";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -78,6 +80,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jakarta.variable}`}>
+      <head>
+        <MetaPixel />
+      </head>
       <body className="min-h-screen bg-ivory text-charcoal font-sans antialiased selection:bg-bronze selection:text-ivory">
         <Navbar />
         <main className="min-h-screen">{children}</main>
