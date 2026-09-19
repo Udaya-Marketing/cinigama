@@ -50,8 +50,7 @@ const STATS = [
   { target: 4.9, decimals: 1, suffix: "★", label: "GOOGLE RATING" },
   { target: 1200, decimals: 0, suffix: "+", label: "WEDDINGS DOCUMENTED" },
   { target: 50, decimals: 0, suffix: "+", label: "CREATIVE MASTER ARTISTS" },
-  { target: 2018, from: 2000, decimals: 0, label: "ESTABLISHED" },
-  { target: 15, decimals: 0, suffix: "+", label: "WORLDWIDE DESTINATIONS" },
+  { target: 2018, from: 2000, decimals: 0, label: "ESTABLISHED" }
 ];
 
 export default function StatsStrip() {

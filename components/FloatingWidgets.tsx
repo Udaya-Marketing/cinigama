@@ -12,7 +12,7 @@ export default function FloatingWidgets() {
   const handleQuickSend = (e: React.FormEvent) => {
     e.preventDefault();
     if (!quickMessage.trim()) return;
-    const url = `https://wa.me/919840012345?text=${encodeURIComponent(quickMessage)}`;
+    const url = `https://wa.me/917904518754?text=${encodeURIComponent(quickMessage)}`;
     window.open(url, "_blank");
     setQuickMessage("");
     setIsQuickChatOpen(false);

@@ -59,7 +59,7 @@ export const OFFICE_LOCATIONS = [
     country: "India",
     city: "Chennai",
     address: "No. 339, 1st Floor, Poonamallee High Rd, Near D.G. Vaishnav College, Arumbakkam, Chennai 600106",
-    phone: "+91 98400 12345",
+    phone: "+91 79045 18754",
   },
   {
     country: "India",
@@ -84,9 +84,9 @@ export const OFFICE_LOCATIONS = [
 export const SOCIAL_LINKS = {
   instagram: "https://instagram.com/cinigama.weddings",
   youtube: "https://youtube.com/@cinigamaweddings",
-  whatsapp: "https://wa.me/919840012345?text=Hi%20Cinigama,%20I%20would%20like%20to%20check%20if%20the%20team%20is%20free%20for%20our%20wedding%20date.",
+  whatsapp: "https://wa.me/917904518754?text=Hi%20Cinigama,%20I%20would%20like%20to%20check%20if%20the%20team%20is%20free%20for%20our%20wedding%20date.",
   email: "hello@cinigama.com",
-  phone: "+91 98400 12345",
+  phone: "+91 79045 18754",
 };
 
 export const CITY_HUBS = [

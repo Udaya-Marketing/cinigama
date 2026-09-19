@@ -333,13 +333,13 @@ export default function BookingLandingPage() {
                   <p><strong>Estimated Budget:</strong> {formData.budget}</p>
                 </div>
 
-                <p className="text-xs text-emerald-700 bg-emerald-50 px-4 py-2 rounded-full inline-block mt-6">
+                {/* <p className="text-xs text-emerald-700 bg-emerald-50 px-4 py-2 rounded-full inline-block mt-6">
                   ⚡ Meta Pixel Event Tracked Successfully (Lead Generated)
-                </p>
+                </p> */}
 
                 <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
                   <a
-                    href={`https://wa.me/919876543210?text=Hi%20Cinigama!%20I%20just%20submitted%20a%20booking%20enquiry%20for%20my%20wedding%20on%20${encodeURIComponent(formData.weddingDate)}`}
+                    href={`https://wa.me/917904518754?text=Hi%20Cinigama!%20I%20just%20submitted%20a%20booking%20enquiry%20for%20my%20wedding%20on%20${encodeURIComponent(formData.weddingDate)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-medium text-sm flex items-center justify-center gap-2 shadow-lg transition-colors"
@@ -570,7 +570,7 @@ export default function BookingLandingPage() {
                         <input
                           type="tel"
                           required
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 79045 18754"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-bronze"

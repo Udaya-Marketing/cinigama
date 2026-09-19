@@ -45,9 +45,9 @@ export default function StoryDetailPage({ params }: Props) {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center brightness-[0.78]"
+          className="object-cover object-center "
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/30 to-charcoal/40" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/30 to-charcoal/40" /> */}
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full text-ivory">
           {/* Back button */}

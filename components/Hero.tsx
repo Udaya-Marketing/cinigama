@@ -220,8 +220,8 @@ export default function Hero() {
       ))}
 
       {/* Cinematic Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/30 to-charcoal/50 z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(23,21,19,0.35)_100%)] z-10" />
+      <div  />
+      <div  />
 
       {/* Hero Content Wrapper */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-28 pb-12 flex flex-col justify-between h-full">

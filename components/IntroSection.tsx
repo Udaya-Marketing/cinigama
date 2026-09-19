@@ -68,7 +68,7 @@ export default function IntroSection() {
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:max-w-none shadow-[0_20px_50px_rgba(23,21,19,0.08)]">
               <div className="relative w-full h-full overflow-hidden bg-beige rounded-sm">
                 <Image
-                  src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1600&auto=format&fit=crop"
+                  src="/images/introimage.jpg"
                   alt="Bride portrait in regal Indian wedding attire"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
