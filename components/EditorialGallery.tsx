@@ -35,7 +35,7 @@ const EDITORIAL_PHOTOS = [
     id: "edit-4",
     title: "Minimalist Elegance",
     subtitle: "Standing Editorial Pose",
-    image: "/images/couture4.jpg",
+    image: "/images/couture5.jpg",
     aspectRatio: "portrait",
     tag: "Series IV",
   },

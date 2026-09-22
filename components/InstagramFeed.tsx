@@ -7,32 +7,32 @@ import { SOCIAL_LINKS } from "@/data/navigation";
 
 const INSTA_POSTS = [
   {
-    url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop",
+    url: "/images/instafeeds/image-1.jpg",
     alt: "Royal bride in handcrafted lehenga",
     caption: "Golden hour pheras in Udaipur #CinigamaWeddings"
   },
   {
-    url: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop",
+    url: "/images/instafeeds/image-2.jpg",
     alt: "Bridal portrait with intricate jewellery",
     caption: "The quiet moments before the walk down the aisle."
   },
   {
-    url: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
+    url: "/images/instafeeds/image-3.jpg",
     alt: "Traditional Kanchipuram silk saree detail",
     caption: "Heritage silks & temple morning light in Chettinad."
   },
   {
-    url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop",
+    url: "/images/instafeeds/image-4.jpg",
     alt: "Couple walking on the beach at sunset",
     caption: "Barefoot cliffside vows above the Arabian sea."
   },
   {
-    url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop",
+    url: "/images/instafeeds/image-5.jpg",
     alt: "Haldi ceremony with yellow flowers",
     caption: "Euphoric marigold petals during the haldi!"
   },
   {
-    url: "https://images.unsplash.com/photo-1544078751-58fee2d8a03b?q=80&w=800&auto=format&fit=crop",
+    url: "/images/instafeeds/image-6.jpg",
     alt: "Twilight mandap illuminated with diyas",
     caption: "Lake Pichola mandap setup under a million stars."
   },

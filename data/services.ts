@@ -14,7 +14,7 @@ export const SERVICES: Service[] = [
     title: "Editorial Wedding Photography",
     tagline: "Honest, candid moments framed with high-fashion sensibility.",
     description: "We document your wedding without interrupting the organic flow of emotion. From the quiet tears of your morning rituals to the uninhibited frenzy of your midnight reception, our team captures raw moments as timeless art.",
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1600&auto=format&fit=crop",
+    image: "/images/services/disciplines.jpg",
     deliverables: [
       "Curated Master Gallery of 800+ color-graded photographs",
       "Handcrafted fine-art leatherbound wedding album",

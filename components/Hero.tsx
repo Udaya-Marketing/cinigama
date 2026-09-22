@@ -28,7 +28,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     webImage: "/images/hero/hero-2-web.jpg",
-    mobileImage: "/images/hero/hero-2-mobile.webp",
+    mobileImage: "/images/hero/hero-2-mobile (1).webp",
     title: "Preserving sacred heirloom moments.",
     subtitle: "Documenting generations of traditions, tears, and unfiltered joy across India.",
     webPosition: "center-right",
