@@ -79,30 +79,10 @@ export default function MegaMenuModal({ isOpen, onClose }: MegaMenuModalProps) {
 
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-12 py-10 sm:py-16 my-auto">
-        {/* Prominent WhatsApp Date Check Card */}
-        <div className="mb-14 sm:mb-20">
-          <a
-            href={SOCIAL_LINKS.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block bg-[#C7A878] hover:bg-[#D4B788] text-charcoal p-6 sm:p-8 max-w-xl transition-all duration-300 shadow-xl"
-          >
-            <div className="flex items-center space-x-4 mb-2">
-              <div className="w-9 h-9 rounded-full bg-charcoal text-[#C7A878] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-5 h-5 fill-current" />
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl text-charcoal font-normal tracking-wide">
-                Tell us your date on WhatsApp
-              </h2>
-            </div>
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-charcoal/80 font-sans font-medium pl-13 sm:pl-[52px]">
-              WE&apos;LL CHECK IF THE TEAM IS FREE FOR YOUR DATE
-            </p>
-          </a>
-        </div>
+
 
         {/* 4 Navigation Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 border-t border-white/10 pt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 border-t border-white/10 pt-10 mb-20">
           {MEGA_MENU_DATA.map((col) => (
             <div key={col.title} className="space-y-5">
               <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.25em] text-[#C7A878] font-semibold block">
@@ -139,6 +119,30 @@ export default function MegaMenuModal({ isOpen, onClose }: MegaMenuModalProps) {
             </div>
           ))}
         </div>
+
+
+        {/* Prominent WhatsApp Date Check Card */}
+        <div className="mb-14 sm:mt-40">
+          <a
+            href={SOCIAL_LINKS.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block bg-[#C7A878] hover:bg-[#D4B788] text-charcoal p-6 sm:p-8 max-w-xl transition-all duration-300 shadow-xl"
+          >
+            <div className="flex items-center space-x-4 mb-2">
+              <div className="w-9 h-9 rounded-full bg-charcoal text-[#C7A878] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <MessageCircle className="w-5 h-5 fill-current" />
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl text-charcoal font-normal tracking-wide">
+                Tell us your date on WhatsApp
+              </h2>
+            </div>
+            <p className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-charcoal/80 font-sans font-medium pl-13 sm:pl-[52px]">
+              WE&apos;LL CHECK IF THE TEAM IS FREE FOR YOUR DATE
+            </p>
+          </a>
+        </div>
+        
       </div>
 
       {/* Bottom Subtle Status Bar */}

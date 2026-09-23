@@ -33,16 +33,16 @@ export const MEGA_MENU_DATA: MegaMenuColumn[] = [
     title: "CLIENT PORTAL & SERVICES",
     links: [
       { label: "Client Portal & Delivery", href: "/#client-portal", badge: "App", subtitle: "Track live project progress & status" },
-      { label: "Packages & Pricing Guide", href: "/services", subtitle: "Transparent pricing & deliverables" },
+      // { label: "Packages & Pricing Guide", href: "/services", subtitle: "Transparent pricing & deliverables" },
       { label: "Custom Albums & Products", href: "/services", subtitle: "Handcrafted Italian leather albums" },
     ],
   },
   {
     title: "ABOUT & REVIEWS",
     links: [
-      { label: "Our Story & Directors", href: "/about", subtitle: "The team behind Cinigama Studios" },
-      { label: "Presence & Studio Hubs", href: "/#locations", subtitle: "Chennai, Bangalore, Udaipur & Goa" },
-      { label: "Client Love & Testimonials", href: "/#reviews", subtitle: "4.9★ rated on Google & WedMeGood" },
+      { label: "Our Story", href: "/about", subtitle: "The team behind Cinigama Studios" },
+      // { label: "Presence & Studio Hubs", href: "/#locations", subtitle: "Chennai, Bangalore, Udaipur & Goa" },
+      // { label: "Client Love & Testimonials", href: "/#reviews", subtitle: "4.9★ rated on Google & WedMeGood" },
     ],
   },
   {
@@ -82,23 +82,22 @@ export const OFFICE_LOCATIONS = [
 ];
 
 export const SOCIAL_LINKS = {
-  instagram: "https://instagram.com/cinigama.weddings",
-  youtube: "https://youtube.com/@cinigamaweddings",
+  instagram: "https://www.instagram.com/cinigamastudio?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==",
+  youtube: "https://www.youtube.com/@cinigamastudio",
   whatsapp: "https://wa.me/917904518754?text=Hi%20Cinigama,%20I%20would%20like%20to%20check%20if%20the%20team%20is%20free%20for%20our%20wedding%20date.",
-  email: "hello@cinigama.com",
+  email: "hello@cinigama.in",
   phone: "+91 79045 18754",
 };
 
 export const CITY_HUBS = [
-  "Chennai",
-  "Bangalore",
+  "Namakkal",
+  "Salem",
+  "Erode",
+  "Tiruppur",
+  "Karur",
+  "Trichy",
   "Coimbatore",
-  "Hyderabad",
-  "Mumbai",
-  "Delhi NCR",
-  "Goa",
-  "Kerala",
-  "Udaipur & Jaipur",
-  "Bali & Worldwide",
+  "Chennai",
+  "Kerala"
 ];
 

@@ -51,7 +51,7 @@ export default function HomePage() {
       <GoogleReviews />
 
       {/* 12: Editorial Journal Preview */}
-      <JournalSection />
+      {/* <JournalSection /> */}
 
       {/* 13: Instagram Visual Diary */}
       <InstagramFeed />

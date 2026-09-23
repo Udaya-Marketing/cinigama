@@ -7,7 +7,7 @@ import { SOCIAL_LINKS } from "@/data/navigation";
 
 const INSTA_POSTS = [
   {
-    url: "/images/instafeeds/image-1.jpg",
+    url: "/images/instafeeds/image-7.jpg",
     alt: "Royal bride in handcrafted lehenga",
     caption: "Golden hour pheras in Udaipur #CinigamaWeddings"
   },

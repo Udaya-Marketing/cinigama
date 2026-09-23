@@ -36,8 +36,8 @@ export interface Story {
 
 export const STORIES: Story[] = [
   {
-    id: "rohan-ananya",
-    slug: "rohan-ananya-udaipur-palace",
+    id: "hariprakash-ramya",
+    slug: "hariprakash-ramya",
     couple: "Hariprakash-Ramya",
     title: "A Royal Symphony on the Waters of Pichola",
     category: "Mandapam",
@@ -109,8 +109,8 @@ export const STORIES: Story[] = [
     featured: true
   },
   {
-    id: "kabir-meera",
-    slug: "kabir-meera-chettinad-heritage",
+    id: "venkat-parkavi",
+    slug: "venkat-parkavi",
     couple: "Venkat & Parkavi",
     title: "Sacred Chants & Brass Bells in Chettinad",
     category: "Heritage South",
@@ -161,8 +161,8 @@ export const STORIES: Story[] = [
     featured: true
   },
   {
-    id: "aditya-sarah",
-    slug: "aditya-sarah-goa-cliffside",
+    id: "tamilselvan-swetha",
+    slug: "tamilselvan-swetha",
     couple: "Tamilselvan & Swetha",
     title: "Barefoot Vows Above the Arabian Sea",
     category: "Destination Coastal",
@@ -204,53 +204,53 @@ export const STORIES: Story[] = [
     ],
     featured: true
   },
+  // {
+  //   id: "dev-rhea",
+  //   slug: "dev-rhea-vineyard-soiree",
+  //   couple: "Dev & Rhea",
+  //   title: "Sunlit Romance Amid Rolling Vines",
+  //   category: "Intimate Soirée",
+  //   location: "Nashik, Maharashtra",
+  //   venue: "Sula Vineyards & The Source Resort",
+  //   date: "February 2025",
+  //   coverImage: "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600&auto=format&fit=crop",
+  //   heroImage: "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=2400&auto=format&fit=crop",
+  //   tagline: "Italian-inspired rustic elegance blended with contemporary Indian festivities.",
+  //   quote: "Our wedding felt like an intimate European weekend with 80 of our closest people. Every frame captured that relaxed, love-drenched atmosphere.",
+  //   quoteAuthor: "Rhea, The Bride",
+  //   synopsis: "An intimate 80-guest wedding nestled in the lush rolling hills of Nashik, featuring candlelit vineyard dinners, acoustic guitar serenades, and heartfelt toasts.",
+  //   storyParagraphs: [
+  //     "Nestled among endless rows of grapevines and Tuscan-inspired stone villas, Dev and Rhea created a celebration focused entirely on human connection.",
+  //     "No stage, no barricades — just communal dining tables adorned with wild rosemary, olive branches, and warm tungsten filament bulbs."
+  //   ],
+  //   details: {
+  //     eventTypes: ["Wine Tasting & Welcome Dinner", "Sunlit Haldi", "Twilight Vows", "Candlelit Banquet"],
+  //     outfits: ["Pastel Mint Raw Silk", "Classic Textured Tuxedo"],
+  //     decorStyle: "Eucalyptus, Olive Leaves, Terra Cotta & Fairy Lights",
+  //     cinematography: "35mm Film + Digital Cinema Hybrid",
+  //     teamSize: "4-Artist Specialist Crew"
+  //   },
+  //   gallery: [
+  //     {
+  //       url: "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600&auto=format&fit=crop",
+  //       alt: "Dev & Rhea walking between rows of lush green vineyards",
+  //       caption: "Strolling through the vineyard rows at dusk.",
+  //       aspect: "landscape",
+  //       span: "half"
+  //     },
+  //     {
+  //       url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
+  //       alt: "Dev and Rhea sharing a quiet toast under festoon lights",
+  //       caption: "Candlelit conversations lasting until 4 AM.",
+  //       aspect: "landscape",
+  //       span: "half"
+  //     }
+  //   ],
+  //   featured: false
+  // },
   {
-    id: "dev-rhea",
-    slug: "dev-rhea-vineyard-soiree",
-    couple: "Dev & Rhea",
-    title: "Sunlit Romance Amid Rolling Vines",
-    category: "Intimate Soirée",
-    location: "Nashik, Maharashtra",
-    venue: "Sula Vineyards & The Source Resort",
-    date: "February 2025",
-    coverImage: "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600&auto=format&fit=crop",
-    heroImage: "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=2400&auto=format&fit=crop",
-    tagline: "Italian-inspired rustic elegance blended with contemporary Indian festivities.",
-    quote: "Our wedding felt like an intimate European weekend with 80 of our closest people. Every frame captured that relaxed, love-drenched atmosphere.",
-    quoteAuthor: "Rhea, The Bride",
-    synopsis: "An intimate 80-guest wedding nestled in the lush rolling hills of Nashik, featuring candlelit vineyard dinners, acoustic guitar serenades, and heartfelt toasts.",
-    storyParagraphs: [
-      "Nestled among endless rows of grapevines and Tuscan-inspired stone villas, Dev and Rhea created a celebration focused entirely on human connection.",
-      "No stage, no barricades — just communal dining tables adorned with wild rosemary, olive branches, and warm tungsten filament bulbs."
-    ],
-    details: {
-      eventTypes: ["Wine Tasting & Welcome Dinner", "Sunlit Haldi", "Twilight Vows", "Candlelit Banquet"],
-      outfits: ["Pastel Mint Raw Silk", "Classic Textured Tuxedo"],
-      decorStyle: "Eucalyptus, Olive Leaves, Terra Cotta & Fairy Lights",
-      cinematography: "35mm Film + Digital Cinema Hybrid",
-      teamSize: "4-Artist Specialist Crew"
-    },
-    gallery: [
-      {
-        url: "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600&auto=format&fit=crop",
-        alt: "Dev & Rhea walking between rows of lush green vineyards",
-        caption: "Strolling through the vineyard rows at dusk.",
-        aspect: "landscape",
-        span: "half"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
-        alt: "Dev and Rhea sharing a quiet toast under festoon lights",
-        caption: "Candlelit conversations lasting until 4 AM.",
-        aspect: "landscape",
-        span: "half"
-      }
-    ],
-    featured: false
-  },
-  {
-    id: "varun-tanya",
-    slug: "varun-tanya-jaipur-haveli",
+    id: "kavin-nithya",
+    slug: "kavin-nithya",
     couple: "Kavin & Nithya",
     title: "A Carnival of Lights in the Pink City",
     category: "Vibrant Celebration",
@@ -292,8 +292,8 @@ export const STORIES: Story[] = [
     featured: false
   },
   {
-    id: "siddharth-priya",
-    slug: "siddharth-priya-bali-prewedding",
+    id: "kaviyarasan-priyashini",
+    slug: "kaviyarasan-priyashini",
     couple: "Kaviyarasan & Priyashini",
     title: "Mist & Waterfalls in the Valley of Ubud",
     category: "Pre-Wedding Film",

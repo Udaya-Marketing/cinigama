@@ -30,7 +30,7 @@ export default function ServicesSection() {
               className="inline-flex items-center space-x-3 text-xs uppercase tracking-[0.2em] font-medium text-charcoal hover:text-bronze transition-colors group"
             >
               <span className="border-b border-charcoal/40 group-hover:border-bronze pb-1">
-                Explore Full Packages & Pricing
+                Explore Full Packages
               </span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
