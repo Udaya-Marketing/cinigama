@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import StatsStrip from "@/components/StatsStrip";
 import IntroSection from "@/components/IntroSection";
+import VideoListing from "@/components/VideoListing";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import EditorialGallery from "@/components/EditorialGallery";
 import FeaturedStories from "@/components/FeaturedStories";
@@ -25,6 +26,9 @@ export default function HomePage() {
 
       {/* 03: Editorial Introduction */}
       <IntroSection />
+
+      {/* 04: Previous Works Video Listing */}
+      <VideoListing />
 
       {/* 04: AI Editorial Studio Gallery (Screenshot 1 matching 4-column warm portrait series) */}
       <EditorialGallery />

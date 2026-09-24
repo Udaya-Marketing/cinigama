@@ -195,7 +195,7 @@ export const STORIES: Story[] = [
         span: "two-thirds"
       },
       {
-        url: "/images/stories/tamil3.jpg",
+        url: "/images/stories/DSC00828.jpg",
         alt: "Swetha smiling with wind blowing her veil against the blue sky",
         caption: "Unrehearsed laughter caught in the ocean breeze.",
         aspect: "portrait",
