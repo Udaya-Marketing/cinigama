@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 const videos = [
-  "/videos/Cinigama02.mp4",
-  "/videos/Hariramya.mp4",
-  "/videos/kavin01.mp4",
-  "/videos/KaviyarasuRiyasini.mp4",
+  "/videos/Cinigama02.webm",
+  "/videos/Hariramya.webm",
+  "/videos/kavin01.webm",
+  "/videos/KaviyarasuRiyasini.webm",
 ];
 
 export default function PreviousWorks() {
