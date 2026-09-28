@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight, Camera, Sparkles, MapPin, Calendar, Maximize2 } 
 import { STORIES } from "@/data/stories";
 import LightboxModal from "@/components/LightboxModal";
 import QuoteCTA from "@/components/QuoteCTA";
+import StoryMasonryGallery from "@/components/StoryMasonryGallery";
 
 interface Props {
   params: {
@@ -151,7 +152,7 @@ export default function StoryDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 03: Curated Visual Gallery (Magazine-Style Editorial Layouts) */}
+      {/* 03: Curated Visual Gallery (Magazine-Style Editorial Layouts)
       <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16 sm:space-y-24 mb-24 sm:mb-36">
         <div className="text-center max-w-xl mx-auto mb-12">
           <span className="text-[11px] font-sans text-bronze uppercase tracking-[0.25em] block mb-2 font-semibold">
@@ -164,7 +165,7 @@ export default function StoryDetailPage({ params }: Props) {
             Click any frame for high-resolution full-screen view.
           </p>
         </div>
-
+        
         {story.gallery.map((img, idx) => {
           if (img.aspect === "wide" || img.span === "full") {
             return (
@@ -249,8 +250,31 @@ export default function StoryDetailPage({ params }: Props) {
             </div>
           );
         })}
+      </section> */}
+      
+    {/* 03: Curated Visual Gallery — masonry layout */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-24 sm:mb-36">
+        <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
+          <span className="text-[11px] font-sans text-bronze uppercase tracking-[0.25em] block mb-2 font-semibold">
+            The Gallery
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-charcoal font-light">
+            Moments In Sequence
+          </h2>
+          <p className="text-xs text-warmgray mt-2 font-light">
+            Click any frame for high-resolution full-screen view.
+          </p>
+        </div>
+
+        <StoryMasonryGallery
+          images={story.gallery}
+          onImageClick={openLightbox}
+          columnWidth={300}
+          maxColumnCount={4}
+        />
       </section>
 
+     
       {/* 04: Story Navigation (Previous & Next Stories) */}
       <section className="border-t border-bordergray bg-beige/30 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

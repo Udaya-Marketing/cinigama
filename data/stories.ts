@@ -11,7 +11,7 @@ export interface Story {
   slug: string;
   couple: string;
   title: string;
-  category: "Mandapam" | "Heritage South" | "Destination Coastal" | "Intimate Soirée" | "Vibrant Celebration" | "Pre-Wedding Film";
+  category: "Mandapam" | "Heritage South" | "Destination Coastal" | "Intimate Soirée" | "Vibrant Celebration" | "Pre-Wedding Film" | "Puberty";
   location: string;
   venue: string;
   date: string;
@@ -169,8 +169,8 @@ export const STORIES: Story[] = [
     location: "Namakkal, Tamil Nadu",
     venue: "Sellampampatti",
     date: "January 2025",
-    coverImage: "/images/stories/tamilcover.jpg",
-    heroImage: "/images/stories/tamil-hero.jpg",
+    coverImage: "/images/stories/tamilselvan/tamilcover.jpg",
+    heroImage: "/images/stories/tamilselvan/tamilhero.jpg",
     tagline: "A breezy cross-cultural celebration where ocean cliffs met sunset melodies.",
     quote: "We wanted zero stiffness, zero clichés. Cinigama gave us a film that feels like an indie cinema masterpiece we will rewatch on every anniversary.",
     quoteAuthor: "Tamilselvan & Swetha",
@@ -188,19 +188,97 @@ export const STORIES: Story[] = [
     },
     gallery: [
       {
-        url: "/images/stories/tamil1.jpg",
+        url: "/images/stories/tamilselvan/tamil2.jpg",
         alt: "Tamilselvan and Swetha walking barefoot on the shoreline at sunset",
         caption: "Golden hour silence on the shores of South Goa.",
-        aspect: "landscape",
-        span: "two-thirds"
+        aspect: "portrait",
+        span: "one-third"
       },
       {
-        url: "/images/stories/DSC00828.jpg",
+        url: "/images/stories/tamilselvan/tamil3.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil4.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil5.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil6.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil14.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil8.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil9.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil13.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil12.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil10.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil7.jpg",
+        alt: "Swetha smiling with wind blowing her veil against the blue sky",
+        caption: "Unrehearsed laughter caught in the ocean breeze.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/tamilselvan/tamil6.jpg",
         alt: "Swetha smiling with wind blowing her veil against the blue sky",
         caption: "Unrehearsed laughter caught in the ocean breeze.",
         aspect: "portrait",
         span: "one-third"
       }
+
     ],
     featured: true
   },
@@ -326,5 +404,143 @@ export const STORIES: Story[] = [
       }
     ],
     featured: false
-  }
+  },
+  {
+    id: "Kanishka",
+    slug: "Kanishka",
+    couple: "Kanishka",
+    title: "A Beautiful Beginning of a New Chapter",
+    category: "Puberty",
+    location: "Namakkal, Tamil Nadu",
+    venue: "Mandapam",
+    date: "December 2024",
+    coverImage: "/images/stories/puberty/cover.jpg",
+    heroImage: "/images/stories/puberty/hero.jpg",
+    tagline: "A graceful celebration filled with tradition, family blessings, and joyful moments marking a beautiful new chapter.",
+    quote: "When we looked at the photos, we didn't just see a beautiful celebration. We felt the happiness of our family, the warmth of every blessing, and the little moments that made this day so special.",
+    quoteAuthor: "Kanishka",
+    synopsis: "Kanishka's puberty ceremony was a beautiful blend of traditional customs, family emotions, and joyful celebrations. Surrounded by loved ones, every ritual unfolded with warmth and elegance, creating memories that will be cherished for years to come.",
+    storyParagraphs: [
+      "There is a special warmth in a family gathering for a traditional celebration. As Kanishka stepped into the beautifully decorated mandapam, surrounded by flowers, family members, and loved ones, the atmosphere was filled with happiness and heartfelt blessings.",
+      "The festivities brought together the beauty of traditional customs and the joy of being surrounded by family. From the meaningful rituals to the laughter shared between cousins and friends, every moment carried its own story.",
+      "Throughout the celebration, our team focused on capturing the genuine emotions behind every ritual — the proud smiles of the family, the joyful conversations, the traditional details, and the candid moments that made Kanishka's special day truly memorable."
+    ],
+
+    details: {
+      eventTypes: ["Traditional Welcome", "Puberty Ceremony", "Family Rituals", "Blessings & Celebration"],
+      outfits: ["Traditional Silk Saree", "Traditional Family Attire"],
+      decorStyle: "Traditional Flowers, Banana Leaves & Elegant Mandapam Decor",
+      cinematography: "Candid & Cinematic Event Photography",
+      teamSize: "8-Artist Master Crew"
+    },
+    gallery: [
+      
+      {
+        url: "/images/stories/puberty/image10.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image1.jpg",
+        alt: "Bridal portrait in intricately hand-embroidered royal red lehenga with kundan jewellery",
+        caption: "Ananya in her bridal suite moments before the varmala ceremony.",
+        aspect: "portrait",
+        span: "half"
+      },
+      {
+        url: "/images/stories/puberty/image2.jpg",
+        alt: "The groom Rohan adjusting his royal safa with vintage kalgi",
+        caption: "Quiet anticipation in the heritage palace courtyards.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/puberty/image9.jpg",
+        alt: "Wide panoramic view of Lake Pichola wedding mandap illuminated by hundreds of floating diyas",
+        caption: "The twilight mandap setup on the lake edge as night descended.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/puberty/image3.jpg",
+        alt: "Couple smiling during their phoolon ki holi haldi ceremony with yellow petals flying",
+        caption: "Unfiltered joy and pure yellow hues during the morning Haldi.",
+        aspect: "landscape",
+        span: "two-thirds"
+      },
+      {
+        url: "/images/stories/puberty/image6.jpg",
+        alt: "Intimate close-up of henna-adorned hands holding wedding ring",
+        caption: "Intricate mehendi motifs telling their travel stories.",
+        aspect: "portrait",
+        span: "one-third"
+      },
+      {
+        url: "/images/stories/puberty/image7.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image8.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image9.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/heroimage.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image11.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image12.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image13.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image14.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      },
+      {
+        url: "/images/stories/puberty/image15.jpg",
+        alt: "Rohan & Ananya walking through the grand arched corridors of Udaivilas",
+        caption: "Timeless elegance in the palace corridors.",
+        aspect: "wide",
+        span: "full"
+      }
+    ],
+    featured: true
+  },
 ];

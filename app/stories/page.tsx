@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { STORIES } from "@/data/stories";
+import StoryMasonryGallery from "@/components/StoryMasonryGallery";
 
 const CATEGORIES = [
   "ALL STORIES",
@@ -14,6 +15,7 @@ const CATEGORIES = [
   "Intimate Soirée",
   "Vibrant Celebration",
   "Pre-Wedding Film",
+  "Puberty",
 ];
 
 export default function StoriesPage() {
@@ -47,19 +49,18 @@ export default function StoriesPage() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 text-xs font-sans uppercase tracking-[0.18em] whitespace-nowrap transition-all duration-300 ${
-                selectedCategory === cat
+              className={`px-4 py-2 text-xs font-sans uppercase tracking-[0.18em] whitespace-nowrap transition-all duration-300 ${selectedCategory === cat
                   ? "bg-charcoal text-ivory font-medium"
                   : "bg-transparent text-warmgray hover:text-charcoal hover:bg-beige"
-              }`}
+                }`}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        {/* Stories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
+        {/* Stories Grid
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-12 lg:gap-16">
           {filteredStories.map((story, idx) => {
             const isWide = idx % 3 === 0;
             return (
@@ -85,14 +86,14 @@ export default function StoriesPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
 
-                    <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 z-20 text-ivory flex flex-col justify-end">
+                    <div className="absolute bottom-0 left-0 right-0 z-20 flex min-w-0 flex-col justify-end p-4 sm:p-10">
                       <span className="text-[10px] uppercase tracking-[0.25em] text-ivory/80 block mb-2 font-medium">
                         {story.category} • {story.location}
                       </span>
-                      <h2 className="font-serif text-2xl sm:text-4xl text-ivory font-light mb-2">
+                      <h2 className="font-serif text-xl sm:text-4xl text-ivory font-light mb-2">
                         {story.couple}
                       </h2>
-                      <p className="text-xs sm:text-sm text-ivory/80 font-light max-w-xl line-clamp-2 mb-4">
+                      <p className="text-[10px] sm:text-sm text-ivory/80 font-light max-w-xl line-clamp-2 mb-4">
                         {story.tagline}
                       </p>
                       <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] text-ivory font-medium group-hover:text-bronze-light transition-colors">
@@ -100,6 +101,81 @@ export default function StoriesPage() {
                           View Complete Story
                         </span>
                         <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1.5" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+        </div> */}
+
+        {/* Stories Grid */}
+        <div className="grid grid-cols-1 gap-5 sm:gap-12 md:grid-cols-2 lg:gap-16">
+          {filteredStories.map((story, idx) => {
+            const isWide = idx % 3 === 0;
+
+            return (
+              <div
+                key={story.id}
+                className={`group ${isWide ? "md:col-span-2" : "md:col-span-1"}`}
+              >
+                <Link
+                  href={`/stories/${story.slug}`}
+                  className="block relative overflow-hidden bg-beige"
+                >
+                  <div
+                    className={`relative w-full overflow-hidden ${isWide ? "aspect-[16/9]" : "aspect-[4/5]"
+                      }`}
+                  >
+                    <Image
+                      src={story.coverImage}
+                      alt={story.title}
+                      fill
+                      sizes={
+                        isWide
+                          ? "100vw"
+                          : "(max-width: 768px) 100vw, 50vw"
+                      }
+                      className="object-cover object-center transition-transform duration-1000 ease-editorial group-hover:scale-103"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+
+                    {/* Text Overlay */}
+                    <div
+                      className={`absolute left-0 right-0 bottom-0 z-20 flex min-w-0 flex-col justify-end ${isWide
+                          ? "px-4 pt-4 pb-1 sm:px-10 sm:pt-10 sm:pb-6"
+                          : "p-4 sm:p-10"
+                        }`}
+                    >
+                      <span
+                        className={`block text-[10px] uppercase tracking-[0.25em] text-ivory/80 font-medium ${isWide ? "mb-1 sm:mb-2" : "mb-2"
+                          }`}
+                      >
+                        {story.category} • {story.location}
+                      </span>
+
+                      <h2
+                        className={`font-serif text-xl sm:text-4xl text-ivory font-light ${isWide ? "mb-1 sm:mb-2" : "mb-2"
+                          }`}
+                      >
+                        {story.couple}
+                      </h2>
+
+                      <p
+                        className={`text-[10px] sm:text-sm text-ivory/80 font-light max-w-xl line-clamp-2 ${isWide ? "mb-2 sm:mb-4" : "mb-4"
+                          }`}
+                      >
+                        {story.tagline}
+                      </p>
+
+                      <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] text-ivory font-medium group-hover:text-bronze-light transition-colors">
+                        <span className="border-b border-ivory/60 pb-0.5 whitespace-nowrap">
+                          View Complete Story
+                        </span>
+
+                        <ArrowRight className="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-1.5" />
                       </div>
                     </div>
                   </div>
