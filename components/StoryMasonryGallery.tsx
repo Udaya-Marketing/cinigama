@@ -1,17 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import dynamic from "next/dynamic";
 import { Maximize2 } from "lucide-react";
 import type { StoryImage } from "@/data/stories";
-
-const Masonry = dynamic(
-  () => import("masonic").then((mod) => mod.Masonry),
-  {
-    ssr: false,
-    loading: () => <MasonrySkeleton count={6} />,
-  }
-);
 
 type MasonryItem = StoryImage & { id: string };
 
@@ -140,25 +131,17 @@ export default function StoryMasonryGallery({
   }
 
   return (
-    <Masonry
-      items={items}
-      itemKey={(item, index) => (item as MasonryItem).id ?? index}
-      columnWidth={columnWidth}
-      columnGutter={20}
-      rowGutter={20}
-      maxColumnCount={maxColumnCount}
-      overscanBy={3}
-      render={({ data, index }) => {
-        const img = data as MasonryItem;
-        return (
+    <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-5 [column-fill:_balance]">
+      {items.map((img, index) => (
+        <div key={img.id ?? index} className="break-inside-avoid mb-5">
           <MasonryTile
             img={img}
             index={index}
             onImageClick={onImageClick}
             hoverOverlay={getHoverOverlay?.(index, img)}
           />
-        );
-      }}
-    />
+        </div>
+      ))}
+    </div>
   );
 }

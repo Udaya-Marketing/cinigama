@@ -1,4 +1,4 @@
-﻿export interface NavItem {
+export interface NavItem {
   label: string;
   href: string;
   description?: string;
@@ -32,6 +32,7 @@ export const MEGA_MENU_DATA: MegaMenuColumn[] = [
   {
     title: "CLIENT PORTAL & SERVICES",
     links: [
+      { label: "Get Your Event Photos", href: "/get-your-photos", badge: "AI Face Match", subtitle: "Find your photos using selfie match" },
       { label: "Client Portal & Delivery", href: "/#client-portal", badge: "App", subtitle: "Track live project progress & status" },
       // { label: "Packages & Pricing Guide", href: "/services", subtitle: "Transparent pricing & deliverables" },
       { label: "Custom Albums & Products", href: "/services", subtitle: "Handcrafted Italian leather albums" },
