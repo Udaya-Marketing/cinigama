@@ -4,6 +4,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'api.cinigama.in',
+      },
+      {
+        protocol: 'https',
         hostname: 'images.unsplash.com',
       },
       {

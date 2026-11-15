@@ -20,8 +20,8 @@ export default function PhotoCard({ item, sessionId, onSelect }: PhotoCardProps)
   const photo = item.photo;
   const isMatch = item.match_type === "face_match";
 
-  const thumbUrl = getPhotoThumbnailUrl(photo.event_id, photo.id, sessionId);
-  const fullUrl = getPhotoViewUrl(photo.event_id, photo.id, sessionId);
+  const thumbUrl = photo.thumbnail_url || getPhotoThumbnailUrl(photo.event_id, photo.id, sessionId);
+  const fullUrl = photo.url || getPhotoViewUrl(photo.event_id, photo.id, sessionId);
 
   const handleDownload = async (e: React.MouseEvent) => {
     e.stopPropagation();

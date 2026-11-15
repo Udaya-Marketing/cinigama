@@ -12,7 +12,9 @@ import {
   Search,
   Eye,
   RefreshCw,
-  AlertCircle,
+  Clock,
+  Heart,
+  ChevronDown,
 } from "lucide-react";
 import {
   EventData,
@@ -20,8 +22,7 @@ import {
   SearchResponse,
 } from "@/types/photo-portal";
 import {
-  fetchEventDetails,
-  fetchPublicPhotos,
+  fetchEventWithDetails,
   getPhotoViewUrl,
 } from "@/lib/api/events";
 import NoEventFound from "@/components/get-your-photos/NoEventFound";
@@ -42,7 +43,7 @@ function GetYourPhotosContent() {
     rawId.trim().toLowerCase() === "null" ||
     rawId.trim().toLowerCase() === "undefined";
 
-  const eventId = isInvalidId ? null : rawId.trim();
+  const eventIdentifier = isInvalidId ? null : rawId.trim();
 
   // State
   const [loading, setLoading] = useState(true);
@@ -52,6 +53,11 @@ function GetYourPhotosContent() {
   const [hasSearched, setHasSearched] = useState(false);
   const [searchSummary, setSearchSummary] = useState<string | null>(null);
 
+  // Pagination state from API
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasNextPage, setHasNextPage] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(false);
+
   // Filter & Search
   const [activeFilter, setActiveFilter] = useState<"all" | "matched" | "public">("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,27 +65,29 @@ function GetYourPhotosContent() {
   // Modals
   const [isSelfieModalOpen, setIsSelfieModalOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [batchDownloading, setBatchDownloading] = useState(false);
 
-  // Fetch event and public photos on mount or when eventId changes
+  // Fetch event and public photos on mount or when eventIdentifier changes
   useEffect(() => {
-    if (!eventId) {
+    if (!eventIdentifier) {
       setLoading(false);
       return;
     }
 
     let isMounted = true;
-    const loadEventAndPublicPhotos = async () => {
+    const loadEventDetails = async () => {
       setLoading(true);
       try {
-        const [event, publicPhotos] = await Promise.all([
-          fetchEventDetails(eventId),
-          fetchPublicPhotos(eventId),
-        ]);
+        const result = await fetchEventWithDetails(eventIdentifier, 1, 50);
 
         if (isMounted) {
-          setEventData(event);
-          setPhotos(publicPhotos);
+          if (result && result.event) {
+            setEventData(result.event);
+            setPhotos(result.photos || []);
+            setCurrentPage(result.page || 1);
+            setHasNextPage(Boolean(result.has_next));
+          } else {
+            setEventData(null);
+          }
         }
       } catch (err) {
         console.error("Failed to load event data:", err);
@@ -88,11 +96,30 @@ function GetYourPhotosContent() {
       }
     };
 
-    loadEventAndPublicPhotos();
+    loadEventDetails();
     return () => {
       isMounted = false;
     };
-  }, [eventId]);
+  }, [eventIdentifier]);
+
+  // Load next page if paginated
+  const handleLoadMore = async () => {
+    if (!eventIdentifier || !hasNextPage || loadingMore) return;
+    try {
+      setLoadingMore(true);
+      const nextPage = currentPage + 1;
+      const result = await fetchEventWithDetails(eventIdentifier, nextPage, 50);
+      if (result && result.photos) {
+        setPhotos((prev) => [...prev, ...result.photos]);
+        setCurrentPage(result.page || nextPage);
+        setHasNextPage(Boolean(result.has_next));
+      }
+    } catch (err) {
+      console.error("Failed to load more photos:", err);
+    } finally {
+      setLoadingMore(false);
+    }
+  };
 
   // Handle Search Result from SelfieUploadModal
   const handleSearchSuccess = (response: SearchResponse) => {
@@ -101,9 +128,12 @@ function GetYourPhotosContent() {
     const data = response.data;
     setSessionId(data.session_id);
     setHasSearched(true);
-    setSearchSummary(response.message || `Found ${data.matched_count} matching photo(s) and ${data.public_count} public photo(s)`);
+    setSearchSummary(
+      response.message ||
+        `Found ${data.matched_count} matching photo(s) and ${data.public_count} public photo(s)`
+    );
 
-    // Update photos list: put face matches first, then public photos
+    // Merge & sort: face matches first, then public photos
     const sorted = [...data.items].sort((a, b) => {
       if (a.match_type === "face_match" && b.match_type !== "face_match") return -1;
       if (b.match_type === "face_match" && a.match_type !== "face_match") return 1;
@@ -111,7 +141,7 @@ function GetYourPhotosContent() {
     });
 
     setPhotos(sorted);
-    // Automatically switch to 'matched' tab if matches exist so the attendee sees their photos immediately!
+    // Switch to 'matched' tab if matches exist so attendee sees their photos right away
     if (data.matched_count > 0) {
       setActiveFilter("matched");
     } else {
@@ -152,34 +182,27 @@ function GetYourPhotosContent() {
   // Batch download all matched photos
   const handleDownloadAllMatches = async () => {
     const matchedPhotos = photos.filter((p) => p.match_type === "face_match");
-    if (matchedPhotos.length === 0 || !eventId) return;
+    const activeEventId = eventData?.id || eventIdentifier;
+    if (matchedPhotos.length === 0 || !activeEventId) return;
 
-    try {
-      setBatchDownloading(true);
-      for (let i = 0; i < matchedPhotos.length; i++) {
-        const item = matchedPhotos[i];
-        const url = getPhotoViewUrl(
-          eventId,
-          item.photo.id,
-          sessionId
-        );
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = item.photo.original_filename || `match-${i + 1}.jpg`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        // Small delay between downloads to prevent browser blocking
-        await new Promise((resolve) => setTimeout(resolve, 400));
-      }
-    } finally {
-      setBatchDownloading(false);
+    for (let i = 0; i < matchedPhotos.length; i++) {
+      const item = matchedPhotos[i];
+      const url = getPhotoViewUrl(activeEventId, item.photo.id, sessionId);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = item.photo.original_filename || `match-${i + 1}.jpg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      await new Promise((resolve) => setTimeout(resolve, 350));
     }
   };
 
   // If no ID or null, render the empty state
-  if (isInvalidId || !eventId) {
-    return <NoEventFound reason="No event ID was provided in the link. Please check your event invitation or QR code." />;
+  if (isInvalidId || !eventIdentifier) {
+    return (
+      <NoEventFound reason="No event ID was provided in the link. Please check your event invitation or QR code." />
+    );
   }
 
   // Loading skeleton
@@ -209,8 +232,14 @@ function GetYourPhotosContent() {
 
   // If event failed to load
   if (!eventData) {
-    return <NoEventFound reason={`Could not locate event with ID: "${eventId}". It may have expired or been removed.`} />;
+    return (
+      <NoEventFound
+        reason={`Could not locate event "${eventIdentifier}". Please verify the event link or code.`}
+      />
+    );
   }
+
+  const canonicalEventId = eventData.id || eventIdentifier;
 
   return (
     <div className="min-h-screen bg-ivory text-charcoal">
@@ -269,7 +298,8 @@ function GetYourPhotosContent() {
                 Looking for photos of yourself?
               </h3>
               <p className="text-ivory/70 text-xs sm:text-sm font-light leading-relaxed">
-                We protect guest privacy by keeping personal portraits private. Upload a quick selfie or snap a live photo to automatically match and unlock your private event photos.
+                Guest privacy is protected. Upload a quick selfie or snap a live photo to
+                automatically scan, match, and unlock your private portraits from this event.
               </p>
             </div>
 
@@ -341,8 +371,45 @@ function GetYourPhotosContent() {
           </div>
         </div>
 
-        {/* 04: Photo Grid */}
-        {filteredPhotos.length === 0 ? (
+        {/* 04: Photo Grid or Empty State */}
+        {photos.length === 0 ? (
+          /* State when event currently has 0 photos uploaded (e.g. freshly created event 52630) */
+          <div className="py-16 sm:py-24 text-center bg-beige/40 border border-bordergray/70 rounded-sm p-8 sm:p-12 space-y-6 max-w-3xl mx-auto shadow-sm">
+            <div className="w-16 h-16 mx-auto rounded-full bg-bronze/10 border border-bronze/30 text-bronze flex items-center justify-center">
+              <Clock className="w-7 h-7" />
+            </div>
+
+            <div className="space-y-3">
+              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.25em] text-bronze font-semibold block">
+                Gallery Processing
+              </span>
+              <h3 className="font-serif text-3xl sm:text-4xl text-charcoal font-light">
+                Photographs Are Being Curated
+              </h3>
+              <p className="text-warmgray text-xs sm:text-sm font-light max-w-lg mx-auto leading-relaxed">
+                The photography crew is currently editing and uploading high-resolution moments for{" "}
+                <span className="text-charcoal font-medium">{eventData.name}</span>. Public highlights
+                will appear here as soon as they are published.
+              </p>
+            </div>
+
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => setIsSelfieModalOpen(true)}
+                className="inline-flex items-center space-x-2 px-6 py-3.5 bg-charcoal text-ivory text-xs uppercase tracking-[0.2em] font-medium hover:bg-bronze transition-colors shadow-md"
+              >
+                <Camera className="w-4 h-4 text-bronze" />
+                <span>Upload Selfie Now for Instant Matching</span>
+              </button>
+              <p className="text-[11px] text-warmgray font-light mt-2.5">
+                Registering your selfie early will automatically match your private photos as soon as
+                they go live.
+              </p>
+            </div>
+          </div>
+        ) : filteredPhotos.length === 0 ? (
+          /* State when photos exist in the event, but current tab/filter has 0 matches */
           <div className="py-20 text-center space-y-4 bg-beige/30 border border-bordergray/60 rounded-sm p-8">
             <div className="w-12 h-12 mx-auto rounded-full bg-bronze/10 text-bronze flex items-center justify-center">
               <Eye className="w-6 h-6" />
@@ -367,23 +434,50 @@ function GetYourPhotosContent() {
             )}
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-            {filteredPhotos.map((item, index) => (
-              <PhotoCard
-                key={item.photo.id || index}
-                item={item}
-                sessionId={sessionId}
-                onSelect={() => setLightboxIndex(index)}
-              />
-            ))}
-          </div>
+          /* Active Photos Grid */
+          <>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+              {filteredPhotos.map((item, index) => (
+                <PhotoCard
+                  key={item.photo.id || index}
+                  item={item}
+                  sessionId={sessionId}
+                  onSelect={() => setLightboxIndex(index)}
+                />
+              ))}
+            </div>
+
+            {/* Pagination Load More Button */}
+            {hasNextPage && (
+              <div className="pt-12 text-center">
+                <button
+                  type="button"
+                  onClick={handleLoadMore}
+                  disabled={loadingMore}
+                  className="inline-flex items-center space-x-2 px-6 py-3 border border-bordergray bg-ivory text-charcoal text-xs uppercase tracking-[0.2em] font-medium hover:bg-beige transition-colors disabled:opacity-50"
+                >
+                  {loadingMore ? (
+                    <>
+                      <RefreshCw className="w-3.5 h-3.5 animate-spin text-bronze" />
+                      <span>Loading More Photos...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Load More Photographs</span>
+                      <ChevronDown className="w-3.5 h-3.5 text-bronze" />
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
+          </>
         )}
       </main>
 
       {/* 05: Selfie Upload & Consent Modal */}
       <SelfieUploadModal
         isOpen={isSelfieModalOpen}
-        eventId={eventId}
+        eventId={canonicalEventId}
         onClose={() => setIsSelfieModalOpen(false)}
         onSearchSuccess={handleSearchSuccess}
       />
@@ -423,4 +517,3 @@ export default function GetYourPhotosPage() {
     </Suspense>
   );
 }
-

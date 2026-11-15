@@ -1,11 +1,15 @@
 export interface EventPhoto {
   id: string;
-  event_id: string;
-  original_filename: string;
-  is_public: boolean;
+  event_id?: string;
+  original_filename?: string;
+  filename?: string;
+  name?: string;
+  is_public?: boolean;
   face_count?: number;
   url?: string;
   thumbnail_url?: string;
+  processing_status?: string;
+  created_at?: string;
 }
 
 export type MatchType = "face_match" | "public";
@@ -49,15 +53,38 @@ export interface SearchResponse {
 
 export interface EventData {
   id: string;
-  organiser_id?: string;
   name: string;
-  slug?: string;
-  access_type: "public" | "private" | string;
-  status: "active" | "archived" | string;
   description?: string;
+  event_date?: string;
+  access_type: "public" | "private" | string;
+  organiser_id?: string;
+  slug?: string;
+  status?: "active" | "archived" | string;
+  created_at?: string;
+  updated_at?: string;
+  total_photos?: number;
+  public_photos?: number;
   date?: string;
   location?: string;
   cover_image?: string;
+}
+
+export interface EventDetailsData {
+  event: EventData;
+  total_photos: number;
+  public_photos: number;
+  photos: (EventPhoto | PhotoSearchItem)[];
+  page?: number;
+  page_size?: number;
+  total_pages?: number;
+  has_next?: boolean;
+  has_prev?: boolean;
+}
+
+export interface EventDetailsResponse {
+  success: boolean;
+  message: string;
+  data: EventDetailsData;
 }
 
 export interface EventResponse {
@@ -65,4 +92,3 @@ export interface EventResponse {
   message?: string;
   data: EventData;
 }
-

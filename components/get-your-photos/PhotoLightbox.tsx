@@ -64,7 +64,7 @@ export default function PhotoLightbox({
 
   const photo = currentItem.photo;
   const isMatch = currentItem.match_type === "face_match";
-  const viewUrl = getPhotoViewUrl(photo.event_id, photo.id, sessionId);
+  const viewUrl = photo.url || getPhotoViewUrl(photo.event_id, photo.id, sessionId);
 
   const handleDownload = async () => {
     try {
